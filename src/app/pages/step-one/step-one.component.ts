@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { StepService } from '../../services/step-service.service';
 
 @Component({
   selector: 'app-step-one',
@@ -12,7 +12,7 @@ export class StepOneComponent {
   phone: string = '';
   submitted: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(private stepService: StepService) {}
 
   onSubmit(form: any) {
     this.submitted = true;
@@ -20,11 +20,10 @@ export class StepOneComponent {
     if (form.valid) {
       this.clearForm();
       this.submitted = false;
-      this.router.navigate(['step-two'], {
-        relativeTo: this.router.routerState.root.firstChild,
-      });
+      this.stepService.goToNextStep();
     }
   }
+
   clearForm() {
     this.name = '';
     this.email = '';
