@@ -1,0 +1,51 @@
+<section class="flex justify-center items-center h-screen">
+  <div class="flex shadow-md rounded-lg p-4 bg-white ">
+    <app-aside-nav class="w-2/5"></app-aside-nav>
+    <div>
+      <div class="bg-white p-8">
+        <h1 class="text-2xl font-bold mb-6">Personal info</h1>
+        <p class="mb-6 text-gray-500">Please provide your name, email address,
+          and phone number.</p>
+        <form (ngSubmit)="onSubmit(personalInfoForm)"
+          #personalInfoForm="ngForm">
+          <div class="mb-4 relative">
+            <label class="block text-sm mb-2 font-bold" for="name">Name</label>
+            <input class="w-full p-3 border rounded" type="text" id="name"
+              placeholder="e.g. Stephen King" [(ngModel)]="name" name="name"
+              required>
+            <span
+              class="error-message absolute right-0 top-0 text-red-500 text-xs"
+              *ngIf="submitted && personalInfoForm.controls['name']?.invalid">Name
+              is required.</span>
+          </div>
+          <div class="mb-4 relative">
+            <label class="block text-sm mb-2 font-bold" for="email">Email
+              Address</label>
+            <input class="w-full p-3 border rounded" type="email" id="email"
+              placeholder="e.g. stephenking@lorem.com" [(ngModel)]="email"
+              name="email" required email>
+            <span
+              class="error-message absolute right-0 top-0 text-red-500 text-xs"
+              *ngIf="submitted && personalInfoForm.controls['email']?.invalid">Enter
+              a valid email address.</span>
+          </div>
+          <div class="mb-6 relative">
+            <label class="block text-sm mb-2 font-bold" for="phone">Phone
+              Number</label>
+            <input class="w-full p-3 border rounded" type="tel" id="phone"
+              placeholder="e.g. +1 234 567 890" [(ngModel)]="phone" name="phone"
+              required>
+            <span
+              class="error-message absolute right-0 top-0 text-red-500 text-xs"
+              *ngIf="submitted && personalInfoForm.controls['phone']?.invalid">Enter
+              a valid phone number.</span>
+          </div>
+          <div class="flex justify-end">
+            <button class="bg-green-600 text-white py-3 px-6 rounded"
+              type="submit">Next Step</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

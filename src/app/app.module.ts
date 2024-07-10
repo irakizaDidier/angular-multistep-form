@@ -1,12 +1,18 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import {
+  BrowserModule,
+  provideClientHydration,
+} from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StepOneComponent } from './components/step-one/step-one.component';
-import { StepTwoComponent } from './components/step-two/step-two.component';
-import { StepThreeComponent } from './components/step-three/step-three.component';
-import { StepFourComponent } from './components/step-four/step-four.component';
+import { StepOneComponent } from './pages/step-one/step-one.component';
+import { StepTwoComponent } from './pages/step-two/step-two.component';
+import { StepThreeComponent } from './pages/step-three/step-three.component';
+import { StepFourComponent } from './pages/step-four/step-four.component';
+import { AsideNavComponent } from './components/aside-nav/aside-nav.component';
 
 @NgModule({
   declarations: [
@@ -14,15 +20,11 @@ import { StepFourComponent } from './components/step-four/step-four.component';
     StepOneComponent,
     StepTwoComponent,
     StepThreeComponent,
-    StepFourComponent
+    StepFourComponent,
+    AsideNavComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [
-    provideClientHydration()
-  ],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
+  providers: [provideClientHydration()],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

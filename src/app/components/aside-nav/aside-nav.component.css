@@ -1,0 +1,19 @@
+.aside-nav {
+  @apply w-full h-full p-4 rounded-lg text-white;
+  background-image: url("/assets/images/bg-sidebar-desktop.svg");
+  background-size: cover;
+  background-position: center;
+
+  .nav-step {
+    @apply mb-8;
+
+    .step-number {
+      @apply flex items-center justify-center w-8 h-8 bg-blue-500 rounded-full mr-4 text-white;
+      border: solid #fff 1px;
+    }
+
+    .step-title {
+      @apply font-bold;
+    }
+  }
+}
