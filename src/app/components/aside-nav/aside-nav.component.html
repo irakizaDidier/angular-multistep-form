@@ -1,33 +1,29 @@
 <aside class="aside-nav">
-  <div class="nav-step flex items-center mb-8">
-    <div
-      class="step-number">1</div>
+  <div class="nav-step flex items-center mb-8" (click)="goToStep(1)">
+    <div class="step-number" [ngClass]="{ 'active': currentStep === 1 }">1</div>
     <div>
-      <h2 class="step-title font-bold">STEP 1</h2>
+      <h3 class="font-normal">STEP 1</h3>
       <p>Your Info</p>
     </div>
   </div>
-  <div class="nav-step flex items-center mb-8">
-    <div
-      class="step-number ">2</div>
+  <div class="nav-step flex items-center mb-8" (click)="goToStep(2)">
+    <div class="step-number" [ngClass]="{ 'active': currentStep === 2 }">2</div>
     <div>
-      <h2 class="step-title font-bold">STEP 2</h2>
+      <h3 class="font-normal">STEP 2</h3>
       <p>Select Plan</p>
     </div>
   </div>
-  <div class="nav-step flex items-center mb-8">
-    <div
-      class="step-number">3</div>
+  <div class="nav-step flex items-center mb-8" (click)="goToStep(3)">
+    <div class="step-number" [ngClass]="{ 'active': currentStep === 3 }">3</div>
     <div>
-      <h2 class="step-title font-bold">STEP 3</h2>
+      <h3 class="font-normal">STEP 3</h3>
       <p>Add-Ons</p>
     </div>
   </div>
-  <div class="nav-step flex items-center">
-    <div
-      class="step-number ">4</div>
+  <div class="nav-step flex items-center" (click)="goToStep(4)">
+    <div class="step-number" [ngClass]="{ 'active': currentStep === 4 }">4</div>
     <div>
-      <h2 class="step-title font-bold">STEP 4</h2>
+      <h3 class="font-normal">STEP 4</h3>
       <p>Summary</p>
     </div>
   </div>

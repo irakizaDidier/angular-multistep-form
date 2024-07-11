@@ -3,17 +3,27 @@
   background-image: url("/assets/images/bg-sidebar-desktop.svg");
   background-size: cover;
   background-position: center;
+  height: 500px;
+  /* width: 274px; */
+}
 
-  .nav-step {
-    @apply mb-8;
+.nav-step {
+  @apply mb-8;
 
-    .step-number {
-      @apply flex items-center justify-center w-8 h-8 bg-blue-500 rounded-full mr-4 text-white;
-      border: solid #fff 1px;
-    }
-
-    .step-title {
-      @apply font-bold;
-    }
+  .step-number {
+    @apply flex items-center justify-center w-8 h-8 rounded-full mr-4 border border-solid border-white text-white;
+    transition: all 0.3s ease;
   }
+
+  .font-normal {
+    font-weight: 100;
+    font-size: 13px;
+    color: #abbcff;
+  }
+}
+
+.nav-step .step-number.active {
+  background-color: #bee2fd;
+  border: none;
+  @apply text-Denim;
 }

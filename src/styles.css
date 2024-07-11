@@ -14,9 +14,13 @@
 
 body {
   background-color: #bee2fd;
+  color: #9699aa;
 }
 button {
   border: none;
   cursor: pointer;
   font-size: 16px;
+}
+h1 {
+  @apply text-Denim;
 }

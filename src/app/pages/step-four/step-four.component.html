@@ -1,1 +1,67 @@
-<p>step-four works!</p>
+<div class="bg-white rounded-lg p-6 ">
+  <h1 class="font-bold">Finishing up</h1>
+  <p class=" mb-6">Double-check everything looks OK before
+    confirming.</p>
+
+  <div class="section-maney rounded-lg p-6 mb-6">
+    <div class="flex justify-between mb-4">
+      <div class="flex flex-col">
+        <span class="font-bold">{{ selectedPlan }} ({{ isMonthly ? 'Monthly' :
+          'Yearly' }})</span>
+        <a href="#" class="text-blue-600 hover:underline">Change</a>
+      </div>
+      <div>
+        <ng-container *ngIf="selectedPlan === 'Arcade'; else otherPlans">
+          {{ isMonthly ? '$9/mo' : '$90/yr' }}
+        </ng-container>
+        <ng-template #otherPlans>
+          <ng-container *ngIf="selectedPlan === 'Advanced'">
+            {{ isMonthly ? '$12/mo' : '$120/yr' }}
+          </ng-container>
+          <ng-container *ngIf="selectedPlan === 'Pro'">
+            {{ isMonthly ? '$15/mo' : '$150/yr' }}
+          </ng-container>
+        </ng-template>
+      </div>
+    </div>
+
+    <div *ngIf="selectedAddOns.onlineService" class="flex justify-between mb-2">
+      <span>Online service</span>
+      <span>{{ isMonthly ? '+ $1/mo' : '+ $10/yr' }}</span>
+    </div>
+    <div *ngIf="selectedAddOns.largerStorage" class="flex justify-between mb-2">
+      <span>Larger storage</span>
+      <span>{{ isMonthly ? '+ $2/mo' : '+ $20/yr' }}</span>
+    </div>
+    <div *ngIf="selectedAddOns.customizableProfile"
+      class="flex justify-between mb-2">
+      <span>Customizable profile</span>
+      <span>{{ isMonthly ? '+ $2/mo' : '+ $20/yr' }}</span>
+    </div>
+  </div>
+
+  <div class="flex justify-between font-bold my-4">
+    <span>Total (per {{ isMonthly ? 'month' : 'year' }})</span>
+    <span>
+      + $
+      {{
+      (isMonthly ?
+      (selectedPlan === 'Arcade' ? 9 : selectedPlan === 'Advanced' ? 12 : 15) :
+      (selectedPlan === 'Arcade' ? 90 : selectedPlan === 'Advanced' ? 120 :
+      150)) +
+      (selectedAddOns.onlineService ? (isMonthly ? 1 : 10) : 0) +
+      (selectedAddOns.largerStorage ? (isMonthly ? 2 : 20) : 0) +
+      (selectedAddOns.customizableProfile ? (isMonthly ? 2 : 20) : 0)
+      }}/
+      {{ isMonthly ? 'mo' : 'yr' }}
+    </span>
+  </div>
+  <div class="flex justify-between">
+    <button
+      class="go-btn text-white rounded-lg "
+      (click)="prevStep()">Go Back</button>
+    <button
+      class=" px-4 py-2 btn text-white rounded-lg "
+      (click)="nextStep()">Confirm</button>
+  </div>
+</div>

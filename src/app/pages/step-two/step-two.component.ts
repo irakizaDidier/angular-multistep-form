@@ -19,6 +19,7 @@ export class StepTwoComponent {
 
   selectPlan(plan: string) {
     this.selectedPlan = plan;
+    this.stepService.setSelectedPlan(plan);
     this.showError = false;
   }
 

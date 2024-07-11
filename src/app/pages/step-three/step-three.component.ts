@@ -28,6 +28,7 @@ export class StepThreeComponent {
       this.selectedAddOns.customizableProfile
     ) {
       this.noAddOnSelected = false;
+      this.stepService.setSelectedAddOns(this.selectedAddOns);
       this.stepService.goToNextStep();
     } else {
       this.noAddOnSelected = true;
