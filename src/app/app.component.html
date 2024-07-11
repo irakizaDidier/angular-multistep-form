@@ -1,18 +1,18 @@
-<section class="flex justify-center items-center min-h-screen">
-  <div class="flex shadow-md rounded-lg p-4 bg-white ">
+<section class="flex justify-center items-center min-h-screen w-full">
+  <div class="flex shadow-md rounded-lg p-4 bg-white w-3/5">
     <app-aside-nav class="w-2/5"></app-aside-nav>
-    <div class="w-3/5">
+    <div>
       <div *ngIf="currentStep === 1">
-        <app-step-one></app-step-one>
+        <app-step-one class="w-1/5 h-full"></app-step-one>
       </div>
       <div *ngIf="currentStep === 2">
-        <app-step-two class="w-2/5"></app-step-two>
+        <app-step-two class="w-1/5 h-full"></app-step-two>
       </div>
       <div *ngIf="currentStep === 3">
-        <app-step-three></app-step-three>
+        <app-step-three class="w-1/5 h-full"></app-step-three>
       </div>
       <div *ngIf="currentStep === 4">
-        <app-step-four></app-step-four>
+        <app-step-four class="w-1/5 h-full"></app-step-four>
       </div>
     </div>
   </div>

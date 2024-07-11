@@ -1,1 +1,61 @@
-<p>step-three works!</p>
+<div class="flex flex-col">
+  <div class="bg-white p-8">
+    <h2 class="text-2xl font-bold mb-4">Pick add-ons</h2>
+    <p class="mb-6">Add-ons help enhance your gaming experience.</p>
+    <div class="flex flex-col gap-4 mb-6 card">
+      <div
+        class="flex items-center p-4 rounded-lg border bg-white add-on-item card-content"
+        [ngClass]="{'border-blue-500': selectedAddOns.onlineService}">
+        <input type="checkbox" id="onlineService"
+          [(ngModel)]="selectedAddOns.onlineService" (change)="onAddOnChange()">
+        <label for="onlineService" class="ml-2 flex-1">
+          <div class="text-xl">Online service</div>
+          <div class="text-sm">Access to multiplayer games</div>
+        </label>
+        <div *ngIf="isMonthly; else yearlyOnlineService"
+          class="text-blue-500">+$1/mo</div>
+        <ng-template #yearlyOnlineService>
+          <div class="text-blue-500">+$10/yr</div>
+        </ng-template>
+      </div>
+      <div class="flex items-center p-4 rounded-lg border bg-white add-on-item"
+        [ngClass]="{'border-blue-500': selectedAddOns.largerStorage}">
+        <input type="checkbox" id="largerStorage"
+          [(ngModel)]="selectedAddOns.largerStorage" (change)="onAddOnChange()">
+        <label for="largerStorage" class="ml-2 flex-1">
+          <div class="text-xl">Larger storage</div>
+          <div class="text-sm">Extra 1TB of cloud save</div>
+        </label>
+        <div *ngIf="isMonthly; else yearlyLargerStorage"
+          class="text-blue-500">+$2/mo</div>
+        <ng-template #yearlyLargerStorage>
+          <div class="text-blue-500">+$20/yr</div>
+        </ng-template>
+      </div>
+      <div class="flex items-center p-4 rounded-lg border bg-white add-on-item"
+        [ngClass]="{'border-blue-500': selectedAddOns.customizableProfile}">
+        <input type="checkbox" id="customizableProfile"
+          [(ngModel)]="selectedAddOns.customizableProfile"
+          (change)="onAddOnChange()">
+        <label for="customizableProfile" class="ml-2 flex-1">
+          <div class="text-xl">Customizable profile</div>
+          <div class="text-sm">Custom theme on your profile</div>
+        </label>
+        <div *ngIf="isMonthly; else yearlyCustomizableProfile"
+          class="text-blue-500">+$2/mo</div>
+        <ng-template #yearlyCustomizableProfile>
+          <div class="text-blue-500">+$20/yr</div>
+        </ng-template>
+      </div>
+    </div>
+    <div *ngIf="noAddOnSelected" class="text-error text-sm mb-4">
+      You must choose at least one add-on.
+    </div>
+    <div class="flex justify-between">
+      <button class="px-4 py-2 rounded go-btn" (click)="prevStep()">Go
+        Back</button>
+      <button class="px-4 py-2 btn rounded text-white btn"
+        (click)="nextStep()">Next Step</button>
+    </div>
+  </div>
+</div>

@@ -11,7 +11,11 @@ export class StepTwoComponent {
   isMonthly: boolean = true;
   showError: boolean = false;
 
-  constructor(private stepService: StepService) {}
+  constructor(private stepService: StepService) {
+    this.stepService.billingCycle$.subscribe((isMonthly) => {
+      this.isMonthly = isMonthly;
+    });
+  }
 
   selectPlan(plan: string) {
     this.selectedPlan = plan;
@@ -20,6 +24,7 @@ export class StepTwoComponent {
 
   toggleBillingCycle(event: Event) {
     this.isMonthly = (event.target as HTMLInputElement).checked;
+    this.stepService.setBillingCycle(this.isMonthly);
   }
 
   nextStep() {

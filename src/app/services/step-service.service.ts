@@ -6,8 +6,10 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class StepService {
   private currentStep = new BehaviorSubject<number>(1);
+  private billingCycle = new BehaviorSubject<boolean>(true);
 
   currentStep$ = this.currentStep.asObservable();
+  billingCycle$ = this.billingCycle.asObservable();
 
   goToNextStep() {
     const step = this.currentStep.value + 1;
@@ -21,5 +23,9 @@ export class StepService {
 
   goToStep(step: number) {
     this.currentStep.next(step);
+  }
+
+  setBillingCycle(isMonthly: boolean) {
+    this.billingCycle.next(isMonthly);
   }
 }
