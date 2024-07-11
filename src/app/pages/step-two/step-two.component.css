@@ -1,0 +1,54 @@
+.dot {
+  transition: transform 0.2s ease-in-out;
+}
+
+.btn {
+  background-color: #022959;
+}
+
+.card {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.card-content {
+  height: 210px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid #d6d9e6 2px;
+  cursor: pointer;
+}
+
+.go-btn {
+  color: #9699aa;
+  background-color: #fff;
+}
+
+.border-blue-500 {
+  border-color: #3b82f6;
+}
+
+.border-gray-300 {
+  border-color: #d1d5db;
+}
+.toggle-section {
+  background-color: #f8f9ff;
+  @apply px-3 py-2 rounded-md;
+}
+.no-active {
+  @apply font-bold;
+  color: #d6d9e6;
+}
+
+.text-gray-900 {
+  @apply text-Denim font-bold;
+}
+.error {
+  color: #ee374a;
+}
