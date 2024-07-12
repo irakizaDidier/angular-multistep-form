@@ -1,9 +1,23 @@
-.body {
-  @apply w-1/2 h-1/2 justify-center items-center content-center;
-}
 button {
   background-color: #022959;
 }
+
 .error-message {
-  @apply font-bold;
+  font-weight: bold;
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+  .step-top {
+    @apply px-6 py-4;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .step-one-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+  }
 }

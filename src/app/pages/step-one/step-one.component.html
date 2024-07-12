@@ -1,5 +1,5 @@
-<div class="flex flex-col ">
-  <div class="bg-white p-8">
+<div class="step-one-container flex flex-col w-full h-full rounded-lg">
+  <div class="step-top w-full">
     <h1 class="text-2xl font-bold mb-4">Personal info</h1>
     <p class="mb-4 text-gray-500">Please provide your name, email address, and
       phone number.</p>
@@ -9,8 +9,7 @@
         <input class="w-full p-3 border rounded" type="text" id="name"
           placeholder="e.g. Stephen King" [(ngModel)]="name" name="name"
           required>
-        <span
-          class="error-message absolute right-0 top-0 text-red-500 text-xs"
+        <span class="error-message absolute right-0 top-0 text-red-500 text-xs"
           *ngIf="submitted && personalInfoForm.controls['name']?.invalid">Name
           is required.</span>
       </div>
@@ -20,8 +19,7 @@
         <input class="w-full p-3 border rounded" type="email" id="email"
           placeholder="e.g. stephenking@lorem.com" [(ngModel)]="email"
           name="email" required email>
-        <span
-          class="error-message absolute right-0 top-0 text-red-500 text-xs"
+        <span class="error-message absolute right-0 top-0 text-red-500 text-xs"
           *ngIf="submitted && personalInfoForm.controls['email']?.invalid">Enter
           a valid email address.</span>
       </div>
@@ -31,14 +29,13 @@
         <input class="w-full p-3 border rounded" type="tel" id="phone"
           placeholder="e.g. +1 234 567 890" [(ngModel)]="phone" name="phone"
           required>
-        <span
-          class="text-error absolute right-0 top-0 text-xs error-message"
+        <span class="text-error absolute right-0 top-0 text-xs error-message"
           *ngIf="submitted && personalInfoForm.controls['phone']?.invalid">Enter
           a valid phone number.</span>
       </div>
       <div class="flex justify-end">
-        <button class="text-white py-3 px-6 rounded"
-          type="submit">Next Step</button>
+        <button class="text-white py-3 px-6 rounded" type="submit">Next
+          Step</button>
       </div>
     </form>
   </div>

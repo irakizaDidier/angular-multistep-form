@@ -1,63 +1,78 @@
-<div class="flex flex-col p-8 bg-white">
-  <h1 class="text-2xl font-bold mb-4">Select your plan</h1>
-  <p class="mb-6">You have the option of monthly or yearly billing.</p>
-  <div class="flex card flex-nowrap justify-center gap-4 mb-6 w-full">
-    <div
-      class="flex-1 p-4 rounded-lg border bg-white text-center sm:w-auto card-content"
-      [ngClass]="{'border-blue-500': selectedPlan === 'Arcade', 'border-gray-300': selectedPlan !== 'Arcade'}"
-      (click)="selectPlan('Arcade')">
-      <div class="text-xl mb-2">Arcade</div>
-      <div *ngIf="isMonthly; else yearlyArcade">$9/mo</div>
-      <ng-template #yearlyArcade>
-        <div>$90/yr</div>
-        <div>2 months free</div>
-      </ng-template>
-    </div>
-    <div
-      class="flex-1 p-4 rounded-lg border bg-white text-center sm:w-auto card-content"
-      [ngClass]="{'border-blue-500': selectedPlan === 'Advanced', 'border-gray-300': selectedPlan !== 'Advanced'}"
-      (click)="selectPlan('Advanced')">
-      <div class="text-xl mb-2">Advanced</div>
-      <div *ngIf="isMonthly; else yearlyAdvanced">$12/mo</div>
-      <ng-template #yearlyAdvanced>
-        <div>$120/yr</div>
-        <div>2 months free</div>
-      </ng-template>
-    </div>
-    <div
-      class="flex-1 p-4 rounded-lg border bg-white text-center sm:w-auto card-content"
-      [ngClass]="{'border-blue-500': selectedPlan === 'Pro', 'border-gray-300': selectedPlan !== 'Pro'}"
-      (click)="selectPlan('Pro')">
-      <div class="text-xl mb-2">Pro</div>
-      <div *ngIf="isMonthly; else yearlyPro">$15/mo</div>
-      <ng-template #yearlyPro>
-        <div>$150/yr</div>
-        <div>2 months free</div>
-      </ng-template>
-    </div>
-  </div>
-  <div class="flex items-center justify-center mb-6 w-full toggle-section">
-    <span class="mr-2"
-      [ngClass]="{'no-active': !isMonthly, 'text-gray-900': isMonthly}">Monthly</span>
-    <label class="relative inline-flex items-center cursor-pointer">
-      <input type="checkbox" class="sr-only" [(ngModel)]="isMonthly"
-        (change)="toggleBillingCycle($event)">
+<div class="step-container">
+  <div class="step-top">
+    <h1 class="text-2xl font-bold mb-4">Select your plan</h1>
+    <p class="mb-6">You have the option of monthly or yearly billing.</p>
+    <div class="grid grid-cols-3 gap-4 mb-6 w-full">
       <div
-        class="w-11 h-6 bg-Denim rounded-full peer dark:bg-gray-700 peer-checked:bg-blue-600"></div>
+        class="flex-1 p-4 rounded-lg border bg-white text-left sm:w-auto card-content"
+        [ngClass]="{'border-blue-500': selectedPlan === 'Arcade', 'border-gray-300': selectedPlan !== 'Arcade'}"
+        (click)="selectPlan('Arcade')">
+        <div class="flex flex-col mb-2">
+          <div class="flex flex-col items-center mb-2">
+            <img src="assets/images/icon-arcade.svg" class="mb-4">
+          </div>
+          <span class="text-Denim my-4 font-bold">Arcade</span>
+        </div>
+        <div *ngIf="isMonthly; else yearlyArcade">$9/mo</div>
+        <ng-template #yearlyArcade>
+          <div>$90/yr</div>
+          <div class="text-sm text-Denim mt-4">2 months free</div>
+        </ng-template>
+      </div>
       <div
-        class="dot absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform transform"
-        [ngClass]="{'translate-x-6': !isMonthly, 'translate-x-0': isMonthly}"></div>
-    </label>
-    <span class="ml-2"
-      [ngClass]="{'no-active': isMonthly, 'text-gray-900': !isMonthly}">Yearly</span>
-  </div>
-  <div *ngIf="showError" class="error mb-4 text-center">
-    Please choose a plan to proceed.
-  </div>
-  <div class="flex justify-between w-full">
-    <button class="px-4 py-2 rounded go-btn" (click)="prevStep()">Go
-      Back</button>
-    <button class="px-4 py-2 rounded text-white btn" (click)="nextStep()">Next
-      Step</button>
+        class="flex-1 p-4 rounded-lg border bg-white text-left sm:w-auto card-content"
+        [ngClass]="{'border-blue-500': selectedPlan === 'Advanced', 'border-gray-300': selectedPlan !== 'Advanced'}"
+        (click)="selectPlan('Advanced')">
+        <div class="flex flex-col mb-2">
+          <div class="flex items-center">
+            <img src="assets/images/icon-advanced.svg" class="mb-4">
+          </div>
+          <span class="text-Denim my-4 font-bold">Advanced</span>
+        </div>
+        <div *ngIf="isMonthly; else yearlyAdvanced">$12/mo</div>
+        <ng-template #yearlyAdvanced>
+          <div>$120/yr</div>
+          <div class="text-sm text-Denim mt-4">2 months free</div>
+        </ng-template>
+      </div>
+      <div
+        class="flex-1 p-4 rounded-lg border bg-white text-left sm:w-auto card-content"
+        [ngClass]="{'border-blue-500': selectedPlan === 'Pro', 'border-gray-300': selectedPlan !== 'Pro'}"
+        (click)="selectPlan('Pro')">
+        <div class="flex flex-col mb-2">
+          <img src="assets/images/icon-pro.svg" class="mb-4">
+          <span class="text-Denim my-4 font-bold">Pro</span>
+        </div>
+        <div *ngIf="isMonthly; else yearlyPro">$15/mo</div>
+        <ng-template #yearlyPro>
+          <div>$150/yr</div>
+          <div class="text-sm text-Denim mt-4">2 months free</div>
+        </ng-template>
+      </div>
+    </div>
+    <div class="flex items-center justify-center mb-6 w-full toggle-section">
+      <span class="mr-2"
+        [ngClass]="{'no-active': !isMonthly, 'text-gray-900': isMonthly}">Monthly</span>
+      <label class="relative inline-flex items-center cursor-pointer">
+        <input type="checkbox" class="sr-only" [(ngModel)]="isMonthly"
+          (change)="toggleBillingCycle($event)">
+        <div
+          class="w-11 h-6 bg-Denim rounded-full peer dark:bg-gray-700 peer-checked:bg-blue-600"></div>
+        <div
+          class="dot absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform transform"
+          [ngClass]="{'translate-x-6': !isMonthly, 'translate-x-0': isMonthly}"></div>
+      </label>
+      <span class="ml-2"
+        [ngClass]="{'no-active': isMonthly, 'text-gray-900': !isMonthly}">Yearly</span>
+    </div>
+    <div *ngIf="showError" class="error mb-4 text-center">
+      Please choose a plan to proceed.
+    </div>
+    <div class="flex justify-between w-full">
+      <button class="px-4 py-2 rounded go-btn" (click)="prevStep()">Go
+        Back</button>
+      <button class="button text-white py-3 px-6 rounded"
+        (click)="nextStep()">Next Step</button>
+    </div>
   </div>
 </div>

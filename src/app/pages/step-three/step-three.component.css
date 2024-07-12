@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border: solid #9699aa 1px;
 }
 
 .add-on-item label {
@@ -9,9 +10,16 @@
   flex-direction: column;
   cursor: pointer;
 }
+
+.bg-highlight {
+  background-color: #f8f9ff;
+  border: solid #483eff 1px;
+}
+
 .btn {
   background-color: #022959;
 }
+
 .go-btn {
   color: #9699aa;
   background-color: #fff;

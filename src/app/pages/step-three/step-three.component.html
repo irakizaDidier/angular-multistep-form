@@ -1,11 +1,14 @@
-<div class="flex flex-col">
+<div class="flex flex-col justify-center items-center w-full">
   <div class="bg-white p-8">
-    <h1 class="text-2xl font-bold mb-4 ">Pick add-ons</h1>
+    <h1 class="text-2xl font-bold mb-4">Pick add-ons</h1>
     <p class="mb-6">Add-ons help enhance your gaming experience.</p>
     <div class="flex flex-col gap-4 mb-6 card">
       <div
         class="flex items-center p-4 rounded-lg border bg-white add-on-item card-content"
-        [ngClass]="{'border-blue-500': selectedAddOns.onlineService}">
+        [ngClass]="{
+          'border-blue-500': selectedAddOns.onlineService,
+          'bg-highlight': selectedAddOns.onlineService
+        }">
         <input type="checkbox" id="onlineService"
           [(ngModel)]="selectedAddOns.onlineService" (change)="onAddOnChange()">
         <label for="onlineService" class="ml-2 flex-1">
@@ -19,7 +22,10 @@
         </ng-template>
       </div>
       <div class="flex items-center p-4 rounded-lg border bg-white add-on-item"
-        [ngClass]="{'border-blue-500': selectedAddOns.largerStorage}">
+        [ngClass]="{
+          'border-blue-500': selectedAddOns.largerStorage,
+          'bg-highlight': selectedAddOns.largerStorage
+        }">
         <input type="checkbox" id="largerStorage"
           [(ngModel)]="selectedAddOns.largerStorage" (change)="onAddOnChange()">
         <label for="largerStorage" class="ml-2 flex-1">
@@ -32,8 +38,12 @@
           <div class="text-blue-500">+$20/yr</div>
         </ng-template>
       </div>
-      <div class="flex items-center p-4 rounded-lg border bg-white add-on-item"
-        [ngClass]="{'border-blue-500': selectedAddOns.customizableProfile}">
+      <div
+        class="flex items-center w-full p-4 rounded-lg border bg-white add-on-item"
+        [ngClass]="{
+          'border-blue-500': selectedAddOns.customizableProfile,
+          'bg-highlight': selectedAddOns.customizableProfile
+        }">
         <input type="checkbox" id="customizableProfile"
           [(ngModel)]="selectedAddOns.customizableProfile"
           (change)="onAddOnChange()">
@@ -52,7 +62,7 @@
       You must choose at least one add-on.
     </div>
     <div class="flex justify-between">
-      <button class="px-4 py-2 rounded go-btn " (click)="prevStep()">Go
+      <button class="px-4 py-2 rounded go-btn" (click)="prevStep()">Go
         Back</button>
       <button class="px-4 py-2 btn rounded text-white btn"
         (click)="nextStep()">Next Step</button>

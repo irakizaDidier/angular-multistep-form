@@ -1,3 +1,33 @@
-.w {
-  width: 230px;
+/* Desktop Styles */
+@media (max-width: 1440px) {
+  .top-section {
+    @apply flex  p-4 bg-white rounded-lg;
+  }
+  .section {
+    @apply flex justify-center items-center min-h-screen w-full;
+  }
+  .form-container {
+    width: 100%;
+    @apply p-5 mx-10;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+  .form-container {
+    padding: 20px;
+    margin-top: -40px;
+    z-index: 10;
+    @apply mx-0 px-6;
+  }
+  .top {
+    @apply p-0 rounded-none;
+  }
+  .section {
+    @apply flex justify-center items-start;
+  }
+  .top-section {
+    @apply flex flex-col p-0;
+    background-color: #bee2fd;
+  }
 }
