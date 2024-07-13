@@ -1,11 +1,3 @@
-.step-container {
-  @apply flex flex-col p-8 bg-white;
-}
-
-.step-top {
-  @apply p-8 rounded-lg shadow-md;
-}
-
 .button {
   background-color: #022959;
 }
@@ -16,9 +8,9 @@
 
 .card {
   display: flex;
-  flex-wrap: nowrap;
   gap: 1rem;
   width: 100%;
+  @apply px-3 py-1 my-3;
 }
 
 .card-content {
@@ -27,8 +19,8 @@
   align-items: flex-start;
   border: solid #d6d9e6 2px;
   cursor: pointer;
-  width: 145px;
-  height: 220px;
+  @apply py-2 px-3;
+  width: 10rem;
 }
 
 .card-content:hover {
@@ -70,10 +62,13 @@
 .dot {
   transition: transform 0.2s ease-in-out;
 }
+.content-top {
+  @apply flex flex-col mb-2;
+}
 
 @media (max-width: 480px) {
   .step-top {
-    @apply p-8 rounded-lg shadow-md;
+    @apply p-8 rounded-lg;
   }
 
   .step-container {
@@ -82,5 +77,20 @@
     width: 100%;
     height: 100%;
     background-color: #fff;
+  }
+  .card-content {
+    align-items: flex-start;
+    border: solid #d6d9e6 2px;
+    cursor: pointer;
+    @apply flex px-4 py-3 w-full;
+  }
+  .content-top {
+    @apply flex flex-row  mb-0;
+  }
+  .content-text {
+    @apply ml-4;
+  }
+  .card {
+    @apply flex flex-wrap gap-4 mb-6 w-full;
   }
 }

@@ -1,49 +1,57 @@
-<div class="step-container">
-  <div class="step-top">
+<div class="step-container flex flex-col w-full h-full rounded-lg">
+  <div class="step-top w-full">
     <h1 class="text-2xl font-bold mb-4">Select your plan</h1>
     <p class="mb-6">You have the option of monthly or yearly billing.</p>
-    <div class="grid grid-cols-3 gap-4 mb-6 w-full">
+    <div class="card">
       <div
-        class="flex-1 p-4 rounded-lg border bg-white text-left sm:w-auto card-content"
+        class="w-full rounded-lg  bg-white  card-content"
         [ngClass]="{'border-blue-500': selectedPlan === 'Arcade', 'border-gray-300': selectedPlan !== 'Arcade'}"
         (click)="selectPlan('Arcade')">
-        <div class="flex flex-col mb-2">
-          <div class="flex flex-col items-center mb-2">
-            <img src="assets/images/icon-arcade.svg" class="mb-4">
+        <div class="content-top">
+          <div class="flex flex-col items-center">
+            <img src="assets/images/icon-arcade.svg" class>
           </div>
-          <span class="text-Denim my-4 font-bold">Arcade</span>
+          <div class="content-text">
+            <span class="text-Denim my-4 font-bold">Arcade</span>
+            <div *ngIf="isMonthly; else yearlyArcade">$9/mo</div>
+          </div>
         </div>
-        <div *ngIf="isMonthly; else yearlyArcade">$9/mo</div>
         <ng-template #yearlyArcade>
           <div>$90/yr</div>
           <div class="text-sm text-Denim mt-4">2 months free</div>
         </ng-template>
       </div>
       <div
-        class="flex-1 p-4 rounded-lg border bg-white text-left sm:w-auto card-content"
+        class="w-full rounded-lg  bg-white  card-content"
         [ngClass]="{'border-blue-500': selectedPlan === 'Advanced', 'border-gray-300': selectedPlan !== 'Advanced'}"
         (click)="selectPlan('Advanced')">
-        <div class="flex flex-col mb-2">
-          <div class="flex items-center">
-            <img src="assets/images/icon-advanced.svg" class="mb-4">
+        <div class="content-top">
+          <div class="flex flex-col items-center">
+            <img src="assets/images/icon-advanced.svg">
           </div>
-          <span class="text-Denim my-4 font-bold">Advanced</span>
+          <div class="content-text">
+            <span class="text-Denim my-4 font-bold">Advanced</span>
+            <div *ngIf="isMonthly; else yearlyAdvanced">$12/mo</div>
+          </div>
         </div>
-        <div *ngIf="isMonthly; else yearlyAdvanced">$12/mo</div>
         <ng-template #yearlyAdvanced>
           <div>$120/yr</div>
           <div class="text-sm text-Denim mt-4">2 months free</div>
         </ng-template>
       </div>
       <div
-        class="flex-1 p-4 rounded-lg border bg-white text-left sm:w-auto card-content"
+        class="w-full rounded-lg  bg-white  card-content"
         [ngClass]="{'border-blue-500': selectedPlan === 'Pro', 'border-gray-300': selectedPlan !== 'Pro'}"
         (click)="selectPlan('Pro')">
-        <div class="flex flex-col mb-2">
-          <img src="assets/images/icon-pro.svg" class="mb-4">
-          <span class="text-Denim my-4 font-bold">Pro</span>
+        <div class="content-top">
+          <div class="flex flex-col items-center">
+            <img src="assets/images/icon-pro.svg">
+          </div>
+          <div class="content-text">
+            <span class="text-Denim my-4 font-bold">Pro</span>
+            <div *ngIf="isMonthly; else yearlyPro">$15/mo</div>
+          </div>
         </div>
-        <div *ngIf="isMonthly; else yearlyPro">$15/mo</div>
         <ng-template #yearlyPro>
           <div>$150/yr</div>
           <div class="text-sm text-Denim mt-4">2 months free</div>
