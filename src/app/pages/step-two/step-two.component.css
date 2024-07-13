@@ -65,7 +65,9 @@
 .content-top {
   @apply flex flex-col mb-2;
 }
-
+.button-mobile {
+  display: none;
+}
 @media (max-width: 480px) {
   .step-top {
     @apply p-8 rounded-lg;
@@ -92,5 +94,15 @@
   }
   .card {
     @apply flex flex-wrap gap-4 mb-6 w-full;
+  }
+  .button-desktop {
+    display: none;
+  }
+  .button-mobile {
+    display: block;
+  }
+  .border-blue-500 {
+    border-color: #3b82f6;
+    background-color: #f8f9ff;
   }
 }

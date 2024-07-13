@@ -31,6 +31,9 @@
 .error-message {
   font-weight: bold;
 }
+.button-mobile {
+  display: none;
+}
 
 @media (max-width: 480px) {
   .step-top {
@@ -48,5 +51,11 @@
   .card {
     @apply flex flex-col gap-4 mb-4;
     font-size: 13px;
+  }
+  .button-desktop {
+    display: none;
+  }
+  .button-mobile {
+    display: block;
   }
 }

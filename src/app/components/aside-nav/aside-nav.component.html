@@ -21,7 +21,8 @@
     </div>
   </div>
   <div class="nav-step flex items-center">
-    <div class="step-number" [ngClass]="{ 'active': currentStep === 4 }">4</div>
+    <div class="step-number"
+      [ngClass]="{ 'active': currentStep === 4 || currentStep === 5 }">4</div>
     <div>
       <h3 class="font-normal">STEP 4</h3>
       <p>Summary</p>

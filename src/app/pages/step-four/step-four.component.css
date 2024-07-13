@@ -11,3 +11,16 @@
 .btn {
   background-color: #483eff;
 }
+.button-mobile {
+  display: none;
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+  .button-desktop {
+    display: none;
+  }
+  .button-mobile {
+    display: block;
+  }
+}

@@ -2,6 +2,8 @@
 @media (max-width: 1440px) {
   .top-section {
     @apply flex  p-4 bg-white rounded-lg;
+    height: 500px;
+    width: 850px;
   }
   .section {
     @apply flex justify-center items-center min-h-screen w-full;

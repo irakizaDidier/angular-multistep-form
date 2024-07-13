@@ -76,11 +76,18 @@
     <div *ngIf="showError" class="error mb-4 text-center">
       Please choose a plan to proceed.
     </div>
-    <div class="flex justify-between w-full">
+    <div class="flex justify-between button-desktop w-full">
       <button class="px-4 py-2 rounded go-btn" (click)="prevStep()">Go
         Back</button>
       <button class="button text-white py-3 px-6 rounded"
         (click)="nextStep()">Next Step</button>
     </div>
   </div>
+</div>
+
+<div class="flex justify-between test py-3">
+  <div></div>
+  <button class="text-white py-3 px-6 bg-Denim rounded button-mobile"
+    type="submit"
+    (click)="nextStep()">Next Step</button>
 </div>

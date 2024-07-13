@@ -1,5 +1,5 @@
 .thank-you-container {
-  @apply flex flex-col w-full h-full bg-white rounded-lg;
+  @apply flex flex-col w-full  bg-white;
   text-align: center;
   align-items: center;
 }
@@ -30,6 +30,7 @@ p {
 @media (max-width: 480px) {
   .thank-you-container {
     padding: 10px;
+    @apply rounded-lg;
   }
 
   h1 {
