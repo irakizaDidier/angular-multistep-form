@@ -1,7 +1,7 @@
 /* Desktop Styles */
 @media (max-width: 1440px) {
   .aside-nav {
-    @apply h-full p-4 rounded-lg text-white;
+    @apply h-full p-4 rounded-lg text-white fixed;
     background-image: url("/assets/images/bg-sidebar-desktop.svg");
     background-size: cover;
     background-position: center;

@@ -1,0 +1,42 @@
+.thank-you-container {
+  @apply flex flex-col w-full h-full bg-white rounded-lg;
+  text-align: center;
+  align-items: center;
+}
+.thank-you-top {
+  width: 100%;
+  @apply px-6 py-4;
+}
+
+.thank-you-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #2b2d42;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1rem;
+  color: #555;
+  max-width: 400px;
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+  .thank-you-container {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+}

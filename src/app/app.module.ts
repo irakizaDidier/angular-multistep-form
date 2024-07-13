@@ -13,6 +13,7 @@ import { StepTwoComponent } from './pages/step-two/step-two.component';
 import { StepThreeComponent } from './pages/step-three/step-three.component';
 import { StepFourComponent } from './pages/step-four/step-four.component';
 import { AsideNavComponent } from './components/aside-nav/aside-nav.component';
+import { ThankYouComponent } from './pages/thank-you/thank-you.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AsideNavComponent } from './components/aside-nav/aside-nav.component';
     StepThreeComponent,
     StepFourComponent,
     AsideNavComponent,
+    ThankYouComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
   providers: [provideClientHydration()],
