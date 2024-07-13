@@ -24,3 +24,9 @@ button {
 h1 {
   @apply text-Denim;
 }
+@media (max-width: 480px) {
+  body .section .test {
+    background-color: #fff;
+    @apply mt-10 w-screen;
+  }
+}
