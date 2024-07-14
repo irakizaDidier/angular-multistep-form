@@ -13,11 +13,29 @@ export class StepService {
     largerStorage: false,
     customizableProfile: false,
   });
+  private stepOneData = new BehaviorSubject<any>({
+    name: '',
+    email: '',
+    phone: '',
+  });
+  private stepTwoData = new BehaviorSubject<any>({
+    plan: '',
+  });
+  private stepThreeData = new BehaviorSubject<any>({
+    onlineService: false,
+    largerStorage: false,
+    customizableProfile: false,
+  });
+  private stepFourData = new BehaviorSubject<any>({});
 
   currentStep$ = this.currentStep.asObservable();
   billingCycle$ = this.billingCycle.asObservable();
   selectedPlan$ = this.selectedPlan.asObservable();
   selectedAddOns$ = this.selectedAddOns.asObservable();
+  stepOneData$ = this.stepOneData.asObservable();
+  stepTwoData$ = this.stepTwoData.asObservable();
+  stepThreeData$ = this.stepThreeData.asObservable();
+  stepFourData$ = this.stepFourData.asObservable();
 
   goToNextStep() {
     const step = this.currentStep.value + 1;
@@ -43,5 +61,21 @@ export class StepService {
 
   setSelectedAddOns(addOns: any) {
     this.selectedAddOns.next(addOns);
+  }
+
+  setStepOneData(data: any) {
+    this.stepOneData.next(data);
+  }
+
+  setStepTwoData(data: any) {
+    this.stepTwoData.next(data);
+  }
+
+  setStepThreeData(data: any) {
+    this.stepThreeData.next(data);
+  }
+
+  setStepFourData(data: any) {
+    this.stepFourData.next(data);
   }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { StepService } from '../../services/step-service.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { StepService } from '../../services/step-service.service';
   templateUrl: './step-three.component.html',
   styleUrls: ['./step-three.component.css'],
 })
-export class StepThreeComponent {
+export class StepThreeComponent implements OnInit {
   isMonthly: boolean = true;
   selectedAddOns: any = {
     onlineService: false,
@@ -15,9 +15,15 @@ export class StepThreeComponent {
   };
   noAddOnSelected: boolean = false;
 
-  constructor(private stepService: StepService) {
+  constructor(private stepService: StepService) {}
+
+  ngOnInit() {
     this.stepService.billingCycle$.subscribe((isMonthly) => {
       this.isMonthly = isMonthly;
+    });
+
+    this.stepService.selectedAddOns$.subscribe((addOns) => {
+      this.selectedAddOns = addOns;
     });
   }
 

@@ -10,7 +10,6 @@ export class StepFourComponent implements OnInit {
   selectedPlan: string | null = null;
   isMonthly: boolean = true;
   selectedAddOns: any = {};
-  showError: boolean = false;
 
   constructor(private stepService: StepService) {
     this.stepService.billingCycle$.subscribe((isMonthly) => {
@@ -25,6 +24,10 @@ export class StepFourComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  changePlan() {
+    this.stepService.goToStep(2);
+  }
 
   nextStep() {
     this.stepService.goToNextStep();

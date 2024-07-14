@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { StepService } from '../../services/step-service.service';
 
 @Component({
@@ -6,14 +6,20 @@ import { StepService } from '../../services/step-service.service';
   templateUrl: './step-two.component.html',
   styleUrls: ['./step-two.component.css'],
 })
-export class StepTwoComponent {
+export class StepTwoComponent implements OnInit {
   selectedPlan: string | null = null;
   isMonthly: boolean = true;
   showError: boolean = false;
 
-  constructor(private stepService: StepService) {
+  constructor(private stepService: StepService) {}
+
+  ngOnInit() {
     this.stepService.billingCycle$.subscribe((isMonthly) => {
       this.isMonthly = isMonthly;
+    });
+
+    this.stepService.selectedPlan$.subscribe((plan) => {
+      this.selectedPlan = plan;
     });
   }
 

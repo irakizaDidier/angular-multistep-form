@@ -11,8 +11,19 @@
 .btn {
   background-color: #483eff;
 }
+.btn:hover {
+  background-color: #928cff;
+}
 .button-mobile {
   display: none;
+}
+.change {
+  color: #9699aa;
+  @apply underline cursor-pointer;
+}
+.change:hover {
+  color: #483eff;
+  @apply underline cursor-pointer;
 }
 
 /* Mobile Styles */
